@@ -35,6 +35,33 @@ replace([_|T], 0, X, [X|T]).
 replace([H|T], I, X, [H|R]):- I > -1, NI is I-1, replace(T, NI, X, R), !.
 
 
+compara(Pos1,Pos2,Elem,Elem2,ListaFinal,ListaZero,ListaReplace):-
+					nth0(Pos2, ListaZero, Teste2),
+					Teste2\==0,nl,
+					write('Uma das posicoes ja foi jogada'), nl,
+							write('Jogue novamente'),nl,
+							memoria(ListaFinal,ListaZero).
+
+
+
+
+compara(Pos1,Pos2,Elem,Elem2,ListaFinal,ListaZero,ListaReplace):-
+							nth0(Pos1, ListaZero, Teste1),
+							Teste1\==0,nl,
+							write('Uma das posicoes ja foi jogada'), nl,
+							write('Jogue novamente'),nl,
+							memoria(ListaFinal,ListaZero).
+
+
+
+							
+
+
+compara(Pos1,Pos2,Elem,Elem2,ListaFinal,ListaZero,ListaReplace):-
+							Pos1 == Pos2,nl,
+							write('Posicoes iguais'),nl,
+							write('Jogue novamente'),nl,
+							memoria(ListaFinal,ListaZero).
 
 
 compara(Pos1,Pos2,Elem,Elem2,ListaFinal,ListaZero,ListaReplace):-
@@ -53,6 +80,12 @@ inicializacao(Tamanho,ListaFinal,ListaZero):-
 		  write('\nDigite o tamanho da lista: '),
 		  read(Tamanho),
 		  finalLista(Tamanho,ListaFinal,ListaZero).
+
+
+
+
+
+
 
 
 memoria(ListaFinal,ListaZero):- ListaFinal == ListaZero,nl,write('FIM'),nl,write(ListaZero),nl.
